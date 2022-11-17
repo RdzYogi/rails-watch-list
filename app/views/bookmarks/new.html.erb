@@ -1,0 +1,10 @@
+<%= render partial: 'lists/nav' %>
+
+<h4>Add a new movies for <%= @list.name %></h4>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <div class="d-flex flex-column mb-3 border-bottom pb-3">
+    <%= f.input :comment %>
+    <%= f.association :movie, as: :select %>
+    <%= f.submit "Add to list", class:"w-25"%>
+  </div>
+<% end %>

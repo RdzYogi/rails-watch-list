@@ -1,0 +1,8 @@
+<h4>Create a new list</h4>
+<%= simple_form_for @list do |f| %>
+  <div class="d-flex flex-column mb-3 border-bottom pb-3">
+    <%= f.label :name %>
+    <%= f.text_field :name, class:"mb-3"%>
+    <%= f.submit "New list", class:"w-25"%>
+  </div>
+<% end %>
