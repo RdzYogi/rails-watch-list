@@ -1,5 +1,14 @@
 <%= render partial: 'lists/nav' %>
-<% @lists.each do |e| %>
-  <p class="ps-2"><%= link_to e.name, list_path(e), class: "text-decoration-none", style: "color: #337ab7;" %></p>
-  <p class="ps-2"><%= link_to "Remove", list_path(e), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none text-danger" %></p>
-<% end %>
+<%= render partial: 'lists/head' %>
+<div class="container mt-3 d-flex">
+  <% @lists.each do |e| %>
+    <div class="border m-3" id="card-show">
+      <div class="border-bottom card-title" id="">
+        <p class="ps-2"><%= link_to e.name, list_path(e), class: "text-decoration-none", style: "color: #337ab7;" %></p>
+      </div>
+      <div class="remove-btn d-flex justify-content-center" id="">
+          <p class="ps-2"><%= link_to "Remove", list_path(e), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none text-danger" %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
