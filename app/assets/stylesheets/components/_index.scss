@@ -5,13 +5,24 @@
 @import "navbar";
 
 #card-show{
-  width: 300px;
+  width: 280px;
   height: 300px;
 }
 
 .card-title{
   height: 90%;
   width: 100%;
+  background-color: black;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transition: 150ms;
+  &:hover{
+    background-size: 105%;
+  }
+}
+.card-name{
+
 }
 .remove-btn{
   height: 10%;

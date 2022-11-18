@@ -5,14 +5,19 @@
   <h2><%= link_to "New list", new_list_path, class: "btn btn-primary text-white rounded-5" %></h2>
 </div>
 <div class="container mt-3 d-flex">
-  <% @lists.each do |e| %>
-    <div class="border m-3" id="card-show">
-      <div class="border-bottom card-title" id="">
-        <p class="ps-2"><%= link_to e.name, list_path(e), class: "text-decoration-none", style: "color: #337ab7;" %></p>
+  <div class="row">
+    <% @lists.each do |e| %>
+      <div class="m-3 col-3" id="card-show">
+        <%= link_to list_path(e), class: "text-decoration-none" do %>
+        <div class="border-bottom card-title d-flex justify-content-center align-items-center "
+            style="background-image: url('<%= cl_image_path e.photo.key if !e.photo.key.nil? %>')">
+          <p class="ps-2 card-name text-white bg-dark"><%= e.name %></p>
+        </div>
+        <% end %>
+        <div class="remove-btn d-flex justify-content-center" id="">
+            <p class="ps-2"><%= link_to "Remove", list_path(e), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none text-danger" %></p>
+        </div>
       </div>
-      <div class="remove-btn d-flex justify-content-center" id="">
-          <p class="ps-2"><%= link_to "Remove", list_path(e), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none text-danger" %></p>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
