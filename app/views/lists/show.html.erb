@@ -1,5 +1,6 @@
 <%= render partial: 'lists/nav' %>
 <h2><%= @list.name %></h2>
+<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
 <% @list.bookmarks.each do |b| %>
   <p><%= b.movie.title %></p>
   <p class="ps-2"><%= link_to "Remove", bookmark_path(b), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none text-danger" %></p>
